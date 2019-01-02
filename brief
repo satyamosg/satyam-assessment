@@ -1,0 +1,40 @@
+Consolidation Assessment
+------------------------
+
+- Create a repository on github under your user name, but include your name in the repo title
+- Share your repository with Craig
+
+Some of the requirements may not be must-haves. Do not cheat, this is an opportunity to understand where you need the most help.
+
+Problem statement
+-----------------
+As someone who has just receieved lots of Christmas presents, I want to log who gave what to each member of my family so that I can send them thank you letters.
+
+Each present should have:
+- Who it was from
+- Which family member it was to
+- A picture of the item
+- What it was
+- How much I liked it (star rating)
+- Date opened (date created stored in firebase)
+- Thank you letter sent (checkbox)
+
+There should be a link that generates a batch of thank you letters
+
+Presents should be sorted sensibly and can have any look and feel.
+
+Direct code reuse from previous projects is banned.
+
+Your MVP must be completed by Friday 2pm where you will demo to a potential employer and should include
+
+- Look and feel
+- Authentication
+- Authorisation (Different users can only see their own stuff)
+- Firebase security
+- Create items
+- Update items
+- Remove items
+- Delete items
+
+
+You can bring 1 A4 piece of paper and will have access to the internet. Reuse of existing code written on the nology course is banned.
