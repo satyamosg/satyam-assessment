@@ -1,14 +1,48 @@
+// Angular Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
+import { RouterModule, Routes } from "@angular/router";
 
+// FireBase Modules
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { environment } from "../environments/environment";
+
+// App Components
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AddPresentComponent } from './add-present/add-present.component';
+import { PresentListComponent } from './present-list/present-list.component';
+
+const appRoutes: Routes = [
+  { path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent},
+  { path: '', component: HomeComponent }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    AddPresentComponent,
+    PresentListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true }
+    ),
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
