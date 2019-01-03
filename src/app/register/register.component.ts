@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { AuthService } from "../services/auth.service";
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,10 +9,10 @@ import { AuthService } from "../services/auth.service";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  name = '';
+  // name = '';
   email = '';
   password = '';
-  confirmPassword = '';
+  // confirmPassword = '';
   error: string;
 
   constructor(private router: Router, private auth: AuthService) { }
@@ -20,10 +20,10 @@ export class RegisterComponent implements OnInit {
   register(details: {email: string, password: string}) {
 
     this.auth.registerUser(details.email, details.password)
-    .then(()=>{
+    .then(() => {
       this.router.navigate(['/']);
     })
-    .catch((error: Error)=>{
+    .catch((error: Error) => {
       this.error = error.message;
     });
   }

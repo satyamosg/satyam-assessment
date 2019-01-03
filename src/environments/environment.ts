@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAysP5kKv1A5qT87DJbqN44o0JQCEtWAFM",
-    authDomain: "satyamchristmasproject.firebaseapp.com",
-    databaseURL: "https://satyamchristmasproject.firebaseio.com",
-    projectId: "satyamchristmasproject",
-    storageBucket: "satyamchristmasproject.appspot.com",
-    messagingSenderId: "1014542663865"
+    apiKey: 'AIzaSyAysP5kKv1A5qT87DJbqN44o0JQCEtWAFM',
+    authDomain: 'satyamchristmasproject.firebaseapp.com',
+    databaseURL: 'https://satyamchristmasproject.firebaseio.com',
+    projectId: 'satyamchristmasproject',
+    storageBucket: 'satyamchristmasproject.appspot.com',
+    messagingSenderId: '1014542663865'
   }
 };
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Timestamp, Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 
 export interface IPresent {
@@ -23,12 +23,12 @@ export interface IPresentID extends IPresent {
 
 export class PresentsService {
 
-  presents: Observable<IPresent[]>
-  presentCollection: AngularFirestoreCollection<IPresent>
+  presents: Observable<IPresent[]>;
+  presentCollection: AngularFirestoreCollection<IPresent>;
 
   constructor (private presentsDB: AngularFirestore) {
     this.presentCollection = this.presentsDB.collection<IPresent>('presents');
-  
+
     this.presents = this.presentCollection.snapshotChanges().pipe(map(this.includeCollectionID));
   }
 
@@ -37,8 +37,8 @@ export class PresentsService {
       const data = a.payload.doc.data();
       const id = a.payload.doc.id;
       return {id, ...data };
-    })
-  };
+    });
+  }
 
   addPresent(presentLog) {
     const present: IPresent = {
@@ -50,7 +50,7 @@ export class PresentsService {
       dateOpened: presentLog.presentDateOpened,
       letterSent: false
     };
-    this.presentCollection.add(present)
+    this.presentCollection.add(present);
   }
 
   deletePresent(presentLog: IPresentID) {

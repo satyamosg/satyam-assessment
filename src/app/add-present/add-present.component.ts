@@ -12,8 +12,8 @@ export class AddPresentComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   onSubmit(present: IPresent) {
-    this.presentService.addPresent(present)
+    this.presentService.addPresent(present);
   }
 }
