@@ -13,19 +13,19 @@ export class RegisterComponent implements OnInit {
   email = '';
   password = '';
   confirmPassword = '';
-  errorMessage: string;
+  error: string;
 
   constructor(private router: Router, private auth: AuthService) { }
 
   register(details: {email: string, password: string}) {
 
-    this.auth.register(details.email, details.password)
+    this.auth.registerUser(details.email, details.password)
     .then(()=>{
       this.router.navigate(['/']);
       console.log("Great success")
     })
     .catch((error: Error)=>{
-      this.errorMessage = error.message;
+      this.error = error.message;
     });
   }
 
