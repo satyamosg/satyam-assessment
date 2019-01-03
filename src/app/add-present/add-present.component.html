@@ -1,6 +1,18 @@
 <h3>Add a present </h3>
 <div class="addpresent">
-  <form class="present-entry" >
-
+  <form class="present-entry" #presentForm="ngForm" (ngSubmit)="onSubmit(presentForm.value)">
+      <div class="form-entry">
+        <label for="newPresent">Present:</label>
+        <input
+        [(ngModel)]="present"
+        name="newPresent"
+        class="form-control"
+        id="newPresent"
+        type="text"
+        placeholder="Enter Present"
+        required
+        >
+      </div>
+      <button type="submit" class="btn btn-primary">Add Present</button>
   </form>
 </div>
