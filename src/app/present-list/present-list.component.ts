@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { PresentsService, IPresent } from "../services/presents.service";
+import { PresentsService, IPresent, IPresentID } from "../services/presents.service";
 
 @Component({
   selector: 'app-present-list',
@@ -17,6 +17,14 @@ export class PresentListComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onDelete(present: IPresentID) {
+    this.presentService.deletePresent(present)
+  }
+
+  checked(present: IPresentID) {
+    this.presentService.checked(present);
   }
 
 }

@@ -22,5 +22,16 @@
     <p>
       Letter Sent: {{ present.letterSent }}
     </p>
+    <label> 
+      <div [hidden]="present.letterSent === true" (click)="present.letterSent = !present.letterSent" (click)="checked(present)" class="unchecked">
+        <i class="unticked far fa-square"></i>
+      </div>
+      <div [hidden]="present.letterSent === false" (click)="present.letterSent = !present.letterSent" (click)="checked(present)" class="checked">
+        <i class="ticked far fa-check-square"></i>
+      </div>  
+    </label>
+    <div class="delete-present">
+      <button id="remove-present" (click)="onDelete(present)"><i class="fas fa-times"></i></button>
+    </div>
   </li>
 </ul>

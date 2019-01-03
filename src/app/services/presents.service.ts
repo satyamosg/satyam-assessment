@@ -14,7 +14,7 @@ export interface IPresent {
 }
 
 export interface IPresentID extends IPresent {
-  id?: string;
+  id: string;
 }
 
 @Injectable({
@@ -23,8 +23,8 @@ export interface IPresentID extends IPresent {
 
 export class PresentsService {
 
-  private presents: Observable<IPresent[]>
-  private presentCollection: AngularFirestoreCollection<IPresent>
+  presents: Observable<IPresent[]>
+  presentCollection: AngularFirestoreCollection<IPresent>
 
   constructor (private presentsDB: AngularFirestore) {
     this.presentCollection = this.presentsDB.collection<IPresent>('presents');
@@ -40,7 +40,7 @@ export class PresentsService {
     })
   };
 
-  addPresent (presentLog) {
+  addPresent(presentLog) {
     const present: IPresent = {
       present: presentLog.newPresent,
       fromFamilyMember: presentLog.presentFrom,
@@ -48,8 +48,27 @@ export class PresentsService {
       image: presentLog.presentImage,
       rating: presentLog.presentRating,
       dateOpened: presentLog.presentDateOpened,
-      letterSent: presentLog.presentLetterSent
+      letterSent: false
     };
     this.presentCollection.add(present)
   }
+
+  deletePresent(presentLog: IPresentID) {
+    this.presentCollection.doc(presentLog.id).delete();
+  }
+
+  checked(presentLog: IPresentID) {
+    const payload = {
+        letterSent: presentLog.letterSent,
+    };
+    this.presentCollection.doc(presentLog.id).update(payload)
+    .then(() => {
+
+        console.log('updated presents ' + presentLog.present);
+    })
+    .catch((error) => {
+        console.log(error);
+        throw new Error('Unable to update user');
+    });
+}
 }
