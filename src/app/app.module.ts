@@ -17,11 +17,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AddPresentComponent } from './add-present/add-present.component';
 import { PresentListComponent } from './present-list/present-list.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'register', component: RegisterComponent},
-  { path: 'login', component: LoginComponent},
-  { path: '', component: HomeComponent }
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

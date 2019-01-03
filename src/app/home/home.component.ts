@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
 
   logout () {
     this.aFAuth.logOut();
-    console.log('Great logout success');
   }
 
 }
