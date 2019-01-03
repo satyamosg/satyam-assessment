@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PresentsService, IPresent } from '../services/presents.service';
 
 @Component({
   selector: 'app-add-present',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPresentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private presentService: PresentsService) { }
 
   ngOnInit() {
   }
-
+  
+  onSubmit(present: IPresent) {
+    this.presentService.addPresent(present)
+  }
 }

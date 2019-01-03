@@ -9,10 +9,83 @@
         class="form-control"
         id="newPresent"
         type="text"
-        placeholder="Enter Present"
+        placeholder="Enter Type of Present"
         required
         >
       </div>
-      <button type="submit" class="btn btn-primary">Add Present</button>
+      <div class="form-entry">
+        <label for="presentFrom">Present From:</label>
+        <input
+        [(ngModel)]="fromFamilyMember"
+        name="presentFrom"
+        class="form-control"
+        id="presentFrom"
+        type="text"
+        placeholder="Enter Name"
+        required
+        >
+      </div>
+      <div class="form-entry">
+        <label for="presentTo">Present To:</label>
+        <input
+        [(ngModel)]="toFamilyMember"
+        name="presentTo"
+        class="form-control"
+        id="presentTo"
+        type="text"
+        placeholder="Enter Name"
+        required
+        >
+      </div>
+      <div class="form-entry">
+        <label for="presentImage">Image of Present:</label>
+        <input
+        [(ngModel)]="image"
+        name="presentImage"
+        class="form-control"
+        id="presentImage"
+        type="text"
+        placeholder="Upload Image"
+        required
+        >
+      </div>
+      <div class="form-entry">
+        <label for="presentRating">Present Rating:</label>
+        <input
+        [(ngModel)]="rating"
+        name="presentRating"
+        class="form-control"
+        id="presentRating"
+        type="number"
+        min="0"
+        max="5"
+        placeholder="Select Rating"
+        required
+        >
+      </div>
+      <div class="form-entry">
+        <label for="presentDateOpened">Present Date Opened:</label>
+        <input
+        [(ngModel)]="dateOpened"
+        name="presentDateOpened"
+        class="form-control"
+        id="presentDateOpened"
+        type="date"
+        placeholder="Select Date Opened"
+        required
+        >
+      </div>
+      <div class="form-entry">
+        <label for="presentLetterSent">Present:</label>
+        <input
+        [(ngModel)]="letterSent"
+        name="presentLetterSent"
+        class="form-control"
+        id="presentLetterSent"
+        type="checkbox"
+        required
+        >
+      </div>
+      <button type="submit" class="btn btn-primary">Add Present:</button>
   </form>
 </div>

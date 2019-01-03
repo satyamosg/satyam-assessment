@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { PresentsService, IPresent } from "../services/presents.service";
 
 @Component({
   selector: 'app-present-list',
@@ -9,10 +10,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PresentListComponent implements OnInit {
 
-  presents: Observable<any[]>
-
-  constructor (private angularDB: AngularFirestore) {
-    this.presents = this.angularDB.collection('presents').valueChanges();
+  presents: Observable<IPresent[]>
+  
+  constructor (private presentService: PresentsService) {
+    this.presents = this.presentService.presents;
   }
 
   ngOnInit() {
