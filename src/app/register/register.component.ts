@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
     this.auth.registerUser(details.email, details.password)
     .then(()=>{
       this.router.navigate(['/']);
-      console.log("Great success")
     })
     .catch((error: Error)=>{
       this.error = error.message;
