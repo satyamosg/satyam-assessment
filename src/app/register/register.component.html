@@ -1,6 +1,56 @@
-<h3>Register</h3>
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    
+<h3 class="text-center mt-4">Register</h3>
+<form class="form-signin text-center p-3"  #registerForm="ngForm" (ngSubmit)="register(registerForm.value)">
+  <div class="mt-4 mb-3">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input 
+        type="text" 
+        class="form-control"
+        id="inputName"
+        name="firstName"
+        placeholder="Enter Name"
+        ngModel
+        required
+        autofocus>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="lastName" 
+        name="lastName" 
+        placeholder="Enter Surname" 
+        ngModel
+        required 
+        autofocus>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail">Email address</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        id="inputEmail" 
+        name="email" 
+        placeholder="Email address" 
+        ngModel
+        required>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input 
+        type="password" 
+        class="form-control" 
+        id="inputPassword" 
+        name="password" 
+        placeholder="Password" 
+        ngModel
+        required>
+      <label class="error mt-3 text-danger" *ngIf="errorMessage">{{ errorMessage }}</label>
+    </div>
+    <button type="submit" class="btn btn-lg btn-success btn-block mb-3">Register</button>
+    <p>{{ registerForm.value | json }} </p>
+    <p>Already have an account? <a routerLink="/login">Log in</a></p>      
   </div>
 </form>
+
