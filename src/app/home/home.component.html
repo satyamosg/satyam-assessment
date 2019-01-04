@@ -1,9 +1,25 @@
+<ul class="nav nav-tabs d-flex">
+  <li class="nav-item">
+    <a class="nav-link active" href="/login">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/present-list">Present's List</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Letters</a>
+  </li>
+  <li class="ml-auto p-2">
+    Hi, {{ aFAuth.user?.email }}!
+  </li>
+  <li class="btn ml-auto text-danger" (click)="logout()">
+    Log Out
+  </li>
+</ul>
 <div class="text-center">
-  <h1>
-    Welcome {{ aFAuth.user?.email }} to your app!
-  </h1>
   <img width="300" src="https://pics.me.me/shh-dont-wa-your-par-is-not-santa-santa-came-22741240.png">
 </div>
-<button class="btn btn-lg btn-danger" (click)="logout()">Logout</button>
-<app-add-present></app-add-present>
-<app-present-list></app-present-list> 
+<!-- <button class="btn btn-lg btn-danger" (click)="logout()">Logout</button> -->
+<div class="container">
+  <app-add-present></app-add-present>
+  <app-present-list></app-present-list> 
+</div>

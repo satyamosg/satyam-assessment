@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Timestamp, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from './auth.service';
 
 export interface IPresent {
   present: string;
@@ -11,6 +12,7 @@ export interface IPresent {
   rating: number;
   dateOpened: string;
   letterSent: boolean;
+  userID: string;
 }
 
 export interface IPresentID extends IPresent {
@@ -26,8 +28,12 @@ export class PresentsService {
   presents: Observable<IPresent[]>;
   presentCollection: AngularFirestoreCollection<IPresent>;
 
-  constructor (private presentsDB: AngularFirestore) {
-    this.presentCollection = this.presentsDB.collection<IPresent>('presents');
+  constructor (private presentsDB: AngularFirestore, private aFAuth: AuthService) {
+    this.presentCollection = this.presentsDB.collection<IPresent>('presents', (reference) => {
+      return reference
+      .where('userID', '==', this.aFAuth.user.uid);
+
+  });
 
     this.presents = this.presentCollection.snapshotChanges().pipe(map(this.includeCollectionID));
   }
@@ -48,9 +54,19 @@ export class PresentsService {
       image: presentLog.presentImage,
       rating: presentLog.presentRating,
       dateOpened: presentLog.presentDateOpened,
-      letterSent: false
+      letterSent: false,
+      userID: this.aFAuth.user.uid,
     };
     this.presentCollection.add(present);
+  }
+
+  getPresent(id: string) {
+    return this.presentCollection.doc(id).get()
+     .pipe(map(
+      (payload) => {
+         return payload.data() as IPresentID;
+       }
+     ));
   }
 
   deletePresent(presentLog: IPresentID) {

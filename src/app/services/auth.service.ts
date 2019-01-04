@@ -25,6 +25,10 @@ export class AuthService {
   get user() {
     return this.aFAuth.auth.currentUser
   }
+  
+  get isLoggedIn(): boolean {
+    return (this.user) ? true: false;
+  }
 
   logOut() {
     this.aFAuth.auth.signOut().then(() => {
