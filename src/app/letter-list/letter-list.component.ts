@@ -24,5 +24,5 @@ export class LetterListComponent implements OnInit {
   logout () {
     this.aFAuth.logOut();
   }
-  
+
 }

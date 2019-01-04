@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { AngularFireAuth } from "@angular/fire/auth";
+import { AngularFireAuth } from '@angular/fire/auth';
 import { map, first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -24,6 +24,6 @@ export class AuthGuardService implements CanActivate {
         },
       ),
       first(),
-    )
+    );
   }
 }

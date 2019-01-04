@@ -12,7 +12,7 @@ export interface IPresent {
   rating: number;
   letterSent: boolean;
   userID: string;
-  id?: string
+  id?: string;
 }
 
 // export interface IPresentID extends IPresent {
@@ -42,7 +42,7 @@ export class PresentsService {
   constructor (private presentsDB: AngularFirestore, private aFAuth: AuthService) {
     this.presentCollection = this.presentsDB.collection<IPresent>('presents', (reference) => {
       return reference
-      .where('userID', '==', this.aFAuth.user.uid).orderBy('dateOpened','desc');
+      .where('userID', '==', this.aFAuth.user.uid).orderBy('dateOpened', 'desc');
 
   });
 
