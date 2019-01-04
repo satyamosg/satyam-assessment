@@ -1,0 +1,11 @@
+.bg {
+    background-color: rgb(145, 46, 100);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.container {
+    width: 70%;
+}

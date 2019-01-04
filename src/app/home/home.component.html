@@ -1,25 +1,21 @@
 <ul class="nav nav-tabs d-flex">
   <li class="nav-item">
-    <a class="nav-link active" href="/login">Home</a>
+    <a class="nav-link text-light" href="/">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/present-list">Present's List</a>
+    <a class="nav-link text-light" href="/letter-list">Letters</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/letter-list">Letters</a>
-  </li>
-  <li class="ml-auto p-2">
+  <li class="ml-auto p-2 text-light">
     Hi, {{ aFAuth.user?.email }}!
   </li>
-  <li class="btn ml-auto text-danger" (click)="logout()">
-    Log Out
+  <li class="nav-item ">
+    <a class="nav-link ml-auto text-danger" (click)="logout()">Log Out</a>
   </li>
 </ul>
-<div class="text-center">
-  <img width="300" src="https://pics.me.me/shh-dont-wa-your-par-is-not-santa-santa-came-22741240.png">
-</div>
-<!-- <button class="btn btn-lg btn-danger" (click)="logout()">Logout</button> -->
-<div class="container">
-  <app-add-present></app-add-present>
-  <app-present-list></app-present-list>
+<div class="bg">
+  <h1 class="text-center text-light">Welcome to your Christmas Present Tracker!</h1>
+  <div class="container">
+    <app-add-present></app-add-present>
+    <app-present-list></app-present-list>
+  </div>
 </div>

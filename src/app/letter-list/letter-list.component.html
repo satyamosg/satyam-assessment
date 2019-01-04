@@ -1,26 +1,29 @@
-<ul>
-    <li class="text" *ngFor="let present of presents | async">
-      <p>
-        Present: {{ present.present }}
-      </p>
-      <p>
-        From: {{ present.fromFamilyMember }}
-      </p>
-      <p>
-        To: {{ present.toFamilyMember }}
-      </p>
-      <p>
-        Present Image: {{ present.image }}
-      </p>
-      <p>
-        Rating: {{ present.rating }}
-      </p>
-      <p>
-        Date Opened: {{ present.dateOpened }}
-      </p>
-      <p>
-        Letter Sent: {{ present.letterSent }}
-      </p>
-    </li>
-  </ul>
-  
+<ul class="nav nav-tabs d-flex">
+  <li class="nav-item">
+    <a class="nav-link text-light" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-light" href="/letter-list">Letters</a>
+  </li>
+  <li class="ml-auto p-2 text-light">
+    Hi, {{ aFAuth.user?.email }}!
+  </li>
+  <li class="nav-item ">
+    <a class="nav-link ml-auto text-danger" (click)="logout()">Log Out</a>
+  </li>
+</ul>
+<div class="bg">
+  <div class="container">
+      <h3 class="text-center">Here are your list of presents: </h3>
+    <ul>
+        <li class="text" *ngFor="let present of presents | async">
+          <p>
+            Dear {{ present.fromFamilyMember }}
+            <br> Thank you for the {{ present.present }}. Your thoughful gift makes me feel fuzzy inside.
+            Thank you for spending some money this christmas and making me smile! Your gift made me feel {{present.rating}}/5
+            <br>Love, {{ present.toFamilyMember }}
+          </p>
+        </li>
+      </ul>
+  </div>
+</div>

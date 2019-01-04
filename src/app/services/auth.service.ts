@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   get user() {
-    return this.aFAuth.auth.currentUser
+    return this.aFAuth.auth.currentUser;
   }
   
   get isLoggedIn(): boolean {

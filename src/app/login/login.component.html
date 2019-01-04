@@ -1,50 +1,37 @@
-<h1>Login</h1>
-<form class="form-signin text-center p-3"  #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
-<div class="mt-4 mb-4">
-  <div class="form-group">
-  <label for="inputEmail">Email address</label>
-  <input 
-    type="email" 
-    id="inputEmail" 
-    name="email" 
-    class="form-control" 
-    placeholder="Enter Email"
-    [(ngModel)]="email"
-    required 
-    autofocus>
+<div class="bg">
+  <div class="heading">
+    <h1 class="text-center">Login</h1>
   </div>
-  <div class="form-group">
-  <label for="inputPassword">Password</label>
-  <input 
-    type="password" 
-    id="inputPassword" 
-    name="password"
-    class="form-control" 
-    placeholder="Enter Password" 
-    [(ngModel)]="password"
-    required>
-  <label class="error mt-3 text-danger" *ngIf="errorMessage">{{ errorMessage }}</label>
-</div>
-</div>
-<button type="submit" class="btn btn-lg btn-success btn-block mb-3">Login</button>
-<p><a routerLink="/register">Register</a></p>
-</form>
-
-<!-- <div>
-    <form (ngSubmit)="logIn()">
-      <fieldset>
-        <label for="Email">Email</label>
-        <input [(ngModel)]="email" type="email" name="Email" id="email" required>
-        <label for="Password">Password</label>
-        <input [(ngModel)]="password" type="password" minlength="6" name="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-          required>
-        <p *ngIf="error" class="error">{{error}}</p>
-        <button class="btn btn-flat btn-navy " type="submit" id="submit">Login</button>
-      </fieldset>
-
-      <div class="links">
-        <a routerLink="/forgotten-password">Forgot your password?</a>
-        <a routerLink="/register">Register</a>
+  <div class="container">
+    <form class="form-signin text-center m-4"  #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+    <div class="mt-4 mb-4">
+      <div class="form-group">
+      <label for="inputEmail">Email address</label>
+      <input 
+        type="email" 
+        id="inputEmail" 
+        name="email" 
+        class="form-control" 
+        placeholder="Enter Email"
+        [(ngModel)]="email"
+        required 
+        autofocus>
       </div>
+      <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input 
+        type="password" 
+        id="inputPassword" 
+        name="password"
+        class="form-control" 
+        placeholder="Enter Password" 
+        [(ngModel)]="password"
+        required>
+      <label class="error mt-3 text-danger" *ngIf="errorMessage">{{ errorMessage }}</label>
+    </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-lg mb-3">Login</button>
+    <p><a routerLink="/register">Register</a></p>
     </form>
-  </div> -->
+  </div>
+</div>

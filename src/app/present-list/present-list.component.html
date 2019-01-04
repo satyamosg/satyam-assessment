@@ -1,4 +1,4 @@
-<h3>Here are some presents to help you start: </h3>
+<h3 class="text-center">Here are your list of presents: </h3>
 <ul>
   <li class="text" *ngFor="let present of presents | async">
     <p>
@@ -16,12 +16,6 @@
     <p>
       Rating: {{ present.rating }}
     </p>
-    <p>
-      Date Opened: {{ present.dateOpened }}
-    </p>
-    <p>
-      Letter Sent: {{ present.letterSent }}
-    </p>
     <label> 
       <div [hidden]="present.letterSent === true" (click)="present.letterSent = !present.letterSent" (click)="checked(present)" class="unchecked">
         <i class="unticked far fa-square"></i>
@@ -31,7 +25,7 @@
       </div>  
     </label>
     <div class="delete-present">
-      <button id="remove-present" (click)="onDelete(present)"><i class="fas fa-times"></i></button>
+      <button class="btn btn-danger"id="remove-present" (click)="onDelete(present)"><i class="fas fa-times"></i></button>
     </div>
   </li>
 </ul>
