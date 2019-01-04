@@ -10,13 +10,25 @@ export interface IPresent {
   toFamilyMember: string;
   image: string;
   rating: number;
-  dateOpened: string;
   letterSent: boolean;
   userID: string;
+  id?: string
 }
 
-export interface IPresentID extends IPresent {
-  id: string;
+// export interface IPresentID extends IPresent {
+//   id: string;
+// }
+
+export interface IPresentUpload extends IPresent {
+  dateOpened: Date;
+}
+
+export interface IPresentDownload extends IPresent {
+  dateOpened: {
+      nanoseconds: number;
+      seconds: number;
+      toDate();
+  };
 }
 
 @Injectable({
@@ -47,15 +59,15 @@ export class PresentsService {
   }
 
   addPresent(presentLog) {
-    const present: IPresent = {
+    const present: IPresentUpload = {
       present: presentLog.newPresent,
       fromFamilyMember: presentLog.presentFrom,
       toFamilyMember: presentLog.presentTo,
       image: presentLog.presentImage,
       rating: presentLog.presentRating,
-      dateOpened: presentLog.presentDateOpened,
       letterSent: false,
       userID: this.aFAuth.user.uid,
+      dateOpened: new Date()
     };
     this.presentCollection.add(present);
   }
@@ -64,16 +76,16 @@ export class PresentsService {
     return this.presentCollection.doc(id).get()
      .pipe(map(
       (payload) => {
-         return payload.data() as IPresentID;
+         return payload.data() as IPresentDownload;
        }
      ));
   }
 
-  deletePresent(presentLog: IPresentID) {
+  deletePresent(presentLog: IPresentDownload) {
     this.presentCollection.doc(presentLog.id).delete();
   }
 
-  checked(presentLog: IPresentID) {
+  checked(presentLog: IPresentDownload) {
     const payload = {
         letterSent: presentLog.letterSent,
     };

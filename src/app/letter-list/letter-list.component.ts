@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IPresent, PresentsService } from '../services/presents.service';
 
 @Component({
   selector: 'app-letter-list',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LetterListComponent implements OnInit {
 
-  constructor() { }
+  presents: Observable<IPresent[]>;
+
+  constructor (private presentService: PresentsService) {
+    this.presents = this.presentService.presents;
+  }
 
   ngOnInit() {
   }

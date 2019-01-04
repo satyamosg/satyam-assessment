@@ -1,3 +1,26 @@
-<p>
-  letter-list works!
-</p>
+<ul>
+    <li class="text" *ngFor="let present of presents | async">
+      <p>
+        Present: {{ present.present }}
+      </p>
+      <p>
+        From: {{ present.fromFamilyMember }}
+      </p>
+      <p>
+        To: {{ present.toFamilyMember }}
+      </p>
+      <p>
+        Present Image: {{ present.image }}
+      </p>
+      <p>
+        Rating: {{ present.rating }}
+      </p>
+      <p>
+        Date Opened: {{ present.dateOpened }}
+      </p>
+      <p>
+        Letter Sent: {{ present.letterSent }}
+      </p>
+    </li>
+  </ul>
+  

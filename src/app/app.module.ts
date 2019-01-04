@@ -24,7 +24,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'present-list', component: PresentListComponent}
+  { path: 'present-list', component: PresentListComponent},
+  { path: 'letter-list', component: LetterListComponent}
 ];
 
 @NgModule({
